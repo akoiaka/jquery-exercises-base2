@@ -9,18 +9,40 @@
   <body>
       <h1>Exercices Jquery base 2</h1>
       <p><b>Charger la dernière version de Jquery et lier le fichier dans la balise head du document html.</b></p>
+//done//
 
       <hr>
       <!-------------------------------------------- Exercice 1 -------------------------------------->
       <h3><em>Exercice 1</em></h3>
       <p>Créer un bouton "cliquez-moi!" en html. <br>Au clic sur le bouton, afficher une boite de dialogue avec le message :<br><b>"On vous ferait vraiment faire n'importe quoi !"</b></p>
+      <form name='form2' method='post' action="#">
 
+      <input  type="button" id="test" value="clique ici"><br>
+
+     </form >
+
+     <script src="http://code.jquery.com/jquery.min.js"></script>
+     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+    <script>
+      $('#test').click(function() {
+          alert('on vous ferat faire n importe quoi !');
+      });
+
+    </script>
       <hr>
       <!-------------------------------------------- Exercice 2 -------------------------------------->
       <h3>Exercice 2</h3>
       <p>Au double click, modifier la largeur de l'image à <b>1735px</b></p>
-      <img src="image1.jpg"/>
+      <img src="image1.jpg" id="tigre"/>
+<script>
+  $(document).ready(function(){
+    $('#tigre').dblclick(function(){
+      $('#tigre').width(1735);
+    })
+  })
 
+  // css({'background-color': 'blue', }) pour les modifs css
+</script>
       <hr>
       <!-------------------------------------------- Exercice 3 -------------------------------------->
       <h3>Exercice 3</h3>
@@ -37,6 +59,13 @@
           <p><b>"</b> Il y existe deux manières de concevoir un logiciel. La première, c’est de le faire si simple qu’il est évident qu’il ne présente aucun problème. La seconde, c’est de le faire si compliqué qu’il ne présente aucun problème évident. La première méthode est de loin la plus complexe. <b>"</b>
               <br><b>Charles Antony Richard Hoare</b></p>
       </div>
+      <script>
+        $(document).ready(function(){
+          $('#exo3').hover(function(){
+            $('#exo3').css({'background-color': '#63A8BC', 'color' : '#fff' , 'width' : 450 , 'height' : 370 , 'text-transform' : '20' });
+          })
+        })
+      </script>
 
       <hr>
       <!-------------------------------------------- Exercice 4 -------------------------------------->
@@ -49,19 +78,54 @@
       <button id="btn1">Vert</button>
       <button id="btn2">Bleu</button>
       <button id="btn3">Rouge</button>
+      <script>
+        $(document).ready(function(){
+                $('#btn1').click(function(){
+                $('#exo4').css({'color' : '#008000' ,
+                                'border' : '#008000' })
+                                          })
+                    $('#btn2').click(function(){
+                    $('#exo4').css({'color' : '#0000FF' ,
+                                    'border' : '#0000FF' })
+                                              })
+                $('#btn3').click(function(){
+                $('#exo4').css({'color' : '#FF0000' ,
+                                'border' : '#FF0000' })
+                                              })
+                                            })
 
+
+        // css({'background-color': 'blue', }) pour les modifs css
+      </script>
       <hr>
       <!-------------------------------------------- Exercice 5 -------------------------------------->
       <h3>Exercice 5</h3>
       <p>Quand un champ a le focus, définir sa bordure à "1px solid green". Quand le champ perd le focus, définir la bordure à "1px solid red"</p>
 
       <form>
-          <input type="text" placeholder="Votre nom">
+          <input id="1" type="text" placeholder="Votre nom">
           <input type="text" placeholder="Votre prénom">
           <input type="password" placeholder="Votre mot de passe">
           <button type="submit">Valider</button>
       </form>
-
+      <script>
+        $(document).ready(function(){
+          $('input:text').focusin(function(){
+            $(this).css({'border-size': '1', 'color' : 'green' , 'border' : 'solid' });
+          })
+          $('input:password').focusin(function(){
+            $(this).css({'border-size': '1', 'color' : 'green' , 'border' : 'solid' });
+          })
+        })
+        $(document).ready(function(){
+          $('input:text').focusout(function(){
+            $(this).css({'border-size': '1', 'color' : 'red' , 'border' : 'solid' });
+          })
+          $('input:password').focusout(function(){
+            $(this).css({'border-size': '1', 'color' : 'red' , 'border' : 'solid' });
+          })
+        })
+      </script>
       <hr>
       <!-------------------------------------------- Exercice 6 -------------------------------------->
       <h3>Exercice 6</h3>
@@ -74,6 +138,37 @@
       <button id="btn4">Vert</button>
       <button id="btn5">Bleu</button>
       <button id="btn6">Rouge</button>
+
+      <script>
+        $(document).ready(function(){
+          $('#btn4').mouseover(function(){
+            $('#exo6').css({'color': 'green' });
+          })
+          $('#btn5').mouseover(function(){
+            $('#exo6').css({'color': 'blue'});
+          })
+        })
+        $(document).ready(function(){
+          $('#btn6').mouseover(function(){
+            $('#exo6').css({'color': 'red'});
+          })
+        })
+
+          $(document).ready(function(){
+            $('#btn4').mouseleave(function(){
+              $('#exo6').css({'color': 'black' });
+            })
+            $('#btn5').mouseleave(function(){
+              $('#exo6').css({'color': 'black'});
+            })
+          })
+          $(document).ready(function(){
+            $('#btn6').mouseleave(function(){
+              $('#exo6').css({'color': 'black'});
+            })
+          })
+
+      </script>
 
 
   </body>
